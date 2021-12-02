@@ -8,21 +8,23 @@ fs.readFile('./data.txt', 'utf8', (err, file_data) => {
 
 	horizontal = 0;
 	depth = 0;
+	aim = 0;
 	data = file_data.split(/\n/);
-	data_word_split = [];
+	data_word_split = []
 	for (let i = 0; i < data.length; i++)
 		data_word_split.push(data[i].split(/ /));
 	for (var i = 0; i < data_word_split.length; i++)
 	{
 		const [direction, value] = data_word_split[i];
 		if (direction == 'forward')
+		{
 			horizontal += Number(value);
-		if (direction == 'backward')
-			horizontal -= Number(value);
+			depth += Number(value) * aim
+		}
 		if (direction == 'down')
-			depth += Number(value);
+			aim += Number(value);
 		if (direction == 'up')
-			depth -= Number(value);
+			aim -= Number(value);
 	}
 	console.log(horizontal * depth);
 });
