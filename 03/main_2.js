@@ -53,6 +53,3 @@ fs.readFile('./input.txt', 'utf8', (err, file_data) => {
 	console.log(scrubber);
 	console.log(oxygen * scrubber);
 });
-
-// Go through list
-	// If number[0] != most common value -> discard
